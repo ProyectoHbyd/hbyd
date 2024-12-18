@@ -1,0 +1,344 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+@font-face {
+    font-family: DMSans;
+    src: url(fonts/DMSans-Regular.ttf);
+}
+
+@font-face {
+    font-family: DMSansB;
+    src: url(fonts/DMSans-Bold.ttf);
+}
+
+@font-face {
+    font-family: DmSansLight;
+    src: url(fonts/DMSans-Light.ttf);
+}
+
+body{
+    font-family: DMSansB;
+    font-weight: bold;
+}
+
+header{
+    background-image: url(assets/Banner.jpg);
+    height: 50vh;
+    background-repeat: no-repeat;
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 48px;
+}
+
+nav{
+
+    display: grid;
+    place-content: center;
+    position: fixed;
+    width: 100%;
+    z-index: 99;
+
+    ul{
+        display: flex;
+        width: 800px;
+        height: 3.5em;
+        gap: 10em;
+        margin-top: 1em;
+        justify-content: center;
+        align-items: center;
+        border-radius: 99px;
+        background: rgba( 215, 255, 221, 0.55 );
+        border: 1px solid #50FF6A;
+        backdrop-filter: blur( 8px );
+        list-style-type: none;
+
+        li:first-child{
+            margin-left: -3em;
+        }
+
+        button{
+            width: 100px;
+            height: 32px;
+            border-radius: 99px;
+            border: none;
+            background:none;
+            font-size: 20px;
+            cursor: pointer;
+        }
+        .active{
+            background-color: #50ff6ab2;
+        }
+
+        button:hover{
+            background-color: #50FF6A;
+            transition: 0.5s;
+        }
+        }
+}
+
+.menu{
+    display: none;
+   
+    .movil{
+        display: block;
+    }
+
+    aside{
+        display: none;
+    }
+}
+
+main{
+    display: grid;
+    grid-template-columns: 60% 40%;
+    grid-template-rows: 12em 20em 30em;
+    grid-template-areas:
+    "why images"
+    "process images"
+    "goals images";
+    margin-top: 3em;
+
+     .imagenes{
+        grid-area: images ;
+        gap: 2em;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        img{
+            width: 40%;
+        }
+     }
+
+     article{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        grid-area: why;
+        
+        h2{
+            font-size: 36px;
+        }
+
+        p{
+            text-align: justify;
+            margin-top: 2em;
+            font-family: DmSansLight;
+            width: 70%;
+        }
+
+    }
+    .proceso{
+        grid-area: process;
+        margin-top: 3em;
+    }
+
+    .goals{
+        display: flex;
+        flex-direction: column;
+        margin-top: 2em;
+        align-items: center;
+        grid-area: goals;
+
+        aside{
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        h2{
+            font-size: 36px;
+        }
+
+        h4{
+            font-size: 20px;
+            margin-top: 1em;
+        }
+
+        progress{
+            margin-top: 1em;
+            width: 40em;
+            height: 3em;;
+        }
+    }
+
+}
+
+
+
+footer{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 5em;
+    gap: 2em;
+    height: 300px;
+    background-size: cover;
+    background-image: url(assets/Footer.png);
+
+    div{
+        display: flex;
+        align-items: center;
+        gap: 1em;
+    }
+
+    img{
+        width: 30px;
+        height: 30px;
+    }
+
+    h1{
+        font-size: 20px;
+    }
+
+    span{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    a{
+        text-decoration: none;
+        color: black;
+        transition: .5s;
+    }
+
+    a:hover{
+        transform: scale(1.1);
+    }
+
+}
+
+@media only screen and (max-width: 1050px) {
+
+    main{
+        grid-template-columns: 100%;
+        grid-template-rows: 17em 20em 14em;
+        grid-template-areas:
+        "why"
+        "process"
+        "images"
+        "goals";
+
+        .imagenes{
+            grid-area: images ;
+            display: flex;
+            flex-direction: row;
+
+            img{
+                width: 28%;
+            }
+
+            img:first-child{
+                display: none;
+            }
+
+            img:nth-child(5){
+                display: none;
+            }
+        }
+    }
+
+
+}
+
+
+@media only screen and (max-width: 800px) {
+
+    nav{
+        position: relative;
+        justify-content: end;
+        ul{
+            width: 700px;
+            display: none;
+        }
+
+        ul{
+            li:first-child{
+            margin-left: 0px;
+        }
+        }
+    }
+
+    .menu{
+        display: flex;
+        position: fixed;
+        border: 1px solid #176b254f;
+        background-color: #50ff6a65;
+        backdrop-filter: blur( 8px );
+        border-radius: 15px;
+        top: 1em;
+        right: 1em;
+
+
+        img{
+            width: 48px;
+        }
+
+        label{
+            z-index: 99;
+        }
+
+    }
+
+    input[type="checkbox"]{
+        display: none;
+    }
+
+    #check:checked ~ aside{
+        display: flex;
+        position: absolute;
+        top: -1em;
+        right: -1em;
+        justify-content: center;
+        align-items: center;
+        background-color: #ffffff;
+        -webkit-backdrop-filter: blur(5px);
+        backdrop-filter: blur( 8px );
+        width: 20em;
+        height: 60em;
+    }
+.menu{
+    .movil{
+        display: flex;
+        flex-direction: column;
+        background: none; 
+        border: none;
+        height: 2em;
+        border-radius: 0;
+        backdrop-filter: blur(0px);
+        margin-top: 0em;
+
+        li{
+            margin-top: -5em;
+        }
+    }
+}
+}
+
+@media only screen and (max-width: 660px) {
+    main{
+
+        grid-template-rows: 30em 20em 14em;
+        .goals{
+            progress{
+                width: 20em;
+            }
+        }
+    }
+
+    h1{
+        font-size: 36px;
+    }
+    
+    
+}
